@@ -1,5 +1,6 @@
 (function (window){
     'use strict';
+
     var App = window.App || {};
     var $ = window.jQuery;
 
@@ -13,6 +14,8 @@
     
     RemoteDataStore.prototype.add = function (key, val){
         $.post(this.serverUrl, val, function (serverResponse) {   
+            //add to db or firebase database
+            db.collection("customer").doc(key).set(val);
             console.log(serverResponse);
         });
     };
@@ -20,7 +23,11 @@
     RemoteDataStore.prototype.getAll = function (cb) {
         $.get(this.serverUrl, function (serverResponse){
             console.log(serverResponse);
-            cb(serverResponse);
+            //cb(serverResponse);
+
+            db.collection('customer').get().then(snap => snap.foreEach(doc =>{
+                console.log(doc.data());
+            }))
         });
     };
 
@@ -28,6 +35,11 @@
         $.get(this.serverUrl + '/' + key, function (serverResponse){
             console.log(serverResponse);
             cb(serverResponse);
+
+            //get iwth firebase
+            db.collection("customer").doc(key).get().then(doc =>{
+                console.log(doc.data())
+            })
         });
     };
 
@@ -36,6 +48,7 @@
             type: 'DELETE'
         });
     };
+    
 
     App.RemoteDataStore = RemoteDataStore;
     window.App = App;

@@ -78,5 +78,34 @@
         <script src="scripts/datastore.js" charset="utf-8"></script>
         <script src="scripts/truck.js"  charset="utf-8"></script>
         <script src="scripts/main.js" charset="utf-8"></script>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCgfZhaGHpg6ZanNoyMy5R2Vnf4uJkKUP8",
+    authDomain: "coffeerun-b16af.firebaseapp.com",
+    databaseURL: "https://coffeerun-b16af.firebaseio.com",
+    projectId: "coffeerun-b16af",
+    storageBucket: "coffeerun-b16af.appspot.com",
+    messagingSenderId: "817375152927",
+    appId: "1:817375152927:web:72cf5794f9e8707fa2be2a",
+    measurementId: "G-1FJ6LHY2GG"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  const db = firebase.firestore();
+</script>
     </body>
 </html>
